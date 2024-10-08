@@ -1,0 +1,46 @@
+
+MariaDB [ipecom]> select * from lpecom_livres where isbn_10 <> 2092589547
+    -> ;
++----------+----------------------------+------------+-------------------------+------+
+| id_livre | titre                      | isbn_10    | auteur                  | prix |
++----------+----------------------------+------------+-------------------------+------+
+|        1 | Forteresse digitale        | 2709626306 | Dan Brown               | 20.5 |
+|        2 | La jeune fille et la nuit   | 2253237620 | Guillaume Musso         | 21.9 |
+|        4 | La Derni├¿re Chasse         | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
+|        5 | Le Signal                  | 2226319484 | Maxime Chattam          | 23.9 |
++----------+----------------------------+------------+-------------------------+------+
+4 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select *, min(prix) as minus from lpecom_livres
+    -> ;
++----------+---------------------+------------+-----------+------+-------+
+| id_livre | titre               | isbn_10    | auteur    | prix | minus |
++----------+---------------------+------------+-----------+------+-------+
+|        1 | Forteresse digitale | 2709626306 | Dan Brown | 20.5 |   5.7 |
++----------+---------------------+------------+-----------+------+-------+
+1 row in set (0.001 sec)
+
+MariaDB [ipecom]> select * from lpecom_livres where id_livre <> 1
+    -> ;
++----------+------------------------------+------------+-------------------------+------+
+| id_livre | titre                        | isbn_10    | auteur                  | prix |
++----------+------------------------------+------------+-------------------------+------+
+|        2 | La jeune fille et la nuit     | 2253237620 | Guillaume Musso         | 21.9 |
+|        3 | T'choupi se brosse les dents | 2092589547 | Thierry Courtin         |  5.7 |
+|        4 | La Derni├¿re Chasse           | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
+|        5 | Le Signal                    | 2226319484 | Maxime Chattam          | 23.9 |
++----------+------------------------------+------------+-------------------------+------+
+4 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select * from lpecom_livres where id_livre <> 1 limit 3
+    -> ;
++----------+------------------------------+------------+-------------------------+------+
+| id_livre | titre                        | isbn_10    | auteur                  | prix |
++----------+------------------------------+------------+-------------------------+------+
+|        2 | La jeune fille et la nuit     | 2253237620 | Guillaume Musso         | 21.9 |
+|        3 | T'choupi se brosse les dents | 2092589547 | Thierry Courtin         |  5.7 |
+|        4 | La Derni├¿re Chasse           | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
++----------+------------------------------+------------+-------------------------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [ipecom]>

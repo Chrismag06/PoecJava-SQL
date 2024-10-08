@@ -1,0 +1,117 @@
+
+Setting environment for using XAMPP for Windows.
+IB@DESKTOP-6IM55F2 c:\xampp
+# show databases;
+'show' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+IB@DESKTOP-6IM55F2 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 588
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| bacasable          |
+| information_schema |
+| ipecom             |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> use ipecom
+Database changed
+MariaDB [ipecom]> show tables;
++--------------------------+
+| Tables_in_ipecom         |
++--------------------------+
+| lpecom_cities            |
+| lpecom_covid             |
+| lpecom_covid_vaccin      |
+| lpecom_covid_vaccin_type |
+| lpecom_departments       |
+| lpecom_etudiants         |
+| lpecom_examens           |
+| lpecom_films             |
+| lpecom_films_notes       |
+| lpecom_livres            |
+| lpecom_realisateurs      |
+| lpecom_regions           |
++--------------------------+
+12 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select * from Lpecom_livres
+    -> ;
++----------+------------------------------+------------+-------------------------+------+
+| id_livre | titre                        | isbn_10    | auteur                  | prix |
++----------+------------------------------+------------+-------------------------+------+
+|        1 | Forteresse digitale          | 2709626306 | Dan Brown               | 20.5 |
+|        2 | La jeune fille et la nuit     | 2253237620 | Guillaume Musso         | 21.9 |
+|        3 | T'choupi se brosse les dents | 2092589547 | Thierry Courtin         |  5.7 |
+|        4 | La Derni├¿re Chasse           | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
+|        5 | Le Signal                    | 2226319484 | Maxime Chattam          | 23.9 |
++----------+------------------------------+------------+-------------------------+------+
+5 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select * from Lpecom_livres where prix > 20
+    -> ;
++----------+----------------------------+------------+-------------------------+------+
+| id_livre | titre                      | isbn_10    | auteur                  | prix |
++----------+----------------------------+------------+-------------------------+------+
+|        1 | Forteresse digitale        | 2709626306 | Dan Brown               | 20.5 |
+|        2 | La jeune fille et la nuit   | 2253237620 | Guillaume Musso         | 21.9 |
+|        4 | La Derni├¿re Chasse         | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
+|        5 | Le Signal                  | 2226319484 | Maxime Chattam          | 23.9 |
++----------+----------------------------+------------+-------------------------+------+
+4 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select * from Lpecom_livres where prix > 20 order by prix desc;
++----------+----------------------------+------------+-------------------------+------+
+| id_livre | titre                      | isbn_10    | auteur                  | prix |
++----------+----------------------------+------------+-------------------------+------+
+|        5 | Le Signal                  | 2226319484 | Maxime Chattam          | 23.9 |
+|        4 | La Derni├¿re Chasse         | 2226439412 | Jean-Christophe Grang├®  | 22.9 |
+|        2 | La jeune fille et la nuit   | 2253237620 | Guillaume Musso         | 21.9 |
+|        1 | Forteresse digitale        | 2709626306 | Dan Brown               | 20.5 |
++----------+----------------------------+------------+-------------------------+------+
+4 rows in set (0.001 sec)
+
+MariaDB [ipecom]> select * from Lpecom_livres order by prix desc limit 1;
++----------+-----------+------------+----------------+------+
+| id_livre | titre     | isbn_10    | auteur         | prix |
++----------+-----------+------------+----------------+------+
+|        5 | Le Signal | 2226319484 | Maxime Chattam | 23.9 |
++----------+-----------+------------+----------------+------+
+1 row in set (0.001 sec)
+
+MariaDB [ipecom]> select max(prix) from Lpecom_livres
+    -> ;
++-----------+
+| max(prix) |
++-----------+
+|      23.9 |
++-----------+
+1 row in set (0.001 sec)
+
+MariaDB [ipecom]> select * from lpcom_livres between 20 and 22
+
++----------+----------------------------+------------+-----------------+------+
+| id_livre | titre                      | isbn_10    | auteur          | prix |
++----------+----------------------------+------------+-----------------+------+
+|        1 | Forteresse digitale        | 2709626306 | Dan Brown       | 20.5 |
+|        2 | La jeune fille et la nuit   | 2253237620 | Guillaume Musso | 21.9 |
++----------+----------------------------+------------+-----------------+------+
+2 rows in set (0.000 sec)
+
+MariaDB [ipecom]>
