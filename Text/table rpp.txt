@@ -1,0 +1,7 @@
+
+id id_pp_nat nom prenom code_profession lib_profession code_savoir_faire lib_savoir_faire code_postal
+2723 810100877124 BEN LAKHDAR AICHA 10 Médecin  SM01 Anatomie et cytologie pathologiques 77000
+6691 810005232136 BENISTY GAELLE 40 Chirurgien-Dentiste  77700
+5864 810000314939 LUC PATRICK  21 Pharmacien  77310
+324 810106334146 MATTINA CARLA 80 Pédicure-Podologue  77400
+702 810004432141 COOK-CAVALERA  MARIE-CECILE 10 Médecin SM14 Chirurgie viscérale et digestive 77100
